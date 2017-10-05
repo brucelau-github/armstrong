@@ -77,15 +77,19 @@ class Population:
         self.population = list(sorted(buf[:size], key=lambda x: x.fitness))
 
 if __name__ == "__main__":
+    x = np.arange(0.2, 0.5, 0.05)
     data = pd.DataFrame({
-        'x1':np.array([0.2]),
-        'x2':np.array([0.2]),
-        'y':np.array([0.4])
+        'x1': x,
+        'x2': x,
+        'x3': x,
+        'x4': x,
+        'y':2*x
         })
     Perceptron._fit_data = data
+    print(data)
 
     maxGenerations = 16384
-    pop = Population(size=2048, crossover=0.8, elitism=0.1, mutation=0.3)
+    pop = Population(size=2048, crossover=0.8, elitism=0.1, mutation=0.8)
 
     for i in range(1, maxGenerations + 1):
         print("Generation %d: fitness %s, gene %s"

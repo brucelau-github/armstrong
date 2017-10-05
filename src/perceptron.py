@@ -28,7 +28,8 @@ class Perceptron(Chromosome):
     def response(self, x):
         """perceptron output"""
         y = np.dot(x, self.w) + self.b
-        return sigmoid(y)
+        #return sigmoid(y)
+        return y
 
     def mate(self, pmate):
         g1, g2 = super(Perceptron, self).mate(pmate)
